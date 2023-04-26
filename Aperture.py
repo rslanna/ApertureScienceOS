@@ -1,5 +1,4 @@
 import time
-import pyttsx3
 
 def animacao_carregamento():
     print("Aperture Science OS v1.0")
@@ -68,12 +67,6 @@ def animacao_carregamento():
                 print("Carregando banco de dados de experimentos...")
                 time.sleep(3)
                 print("GLaDOS iniciada com sucesso!")
-
-                # TTS - Text to Speech
-                engine = pyttsx3.init()
-                engine.setProperty("rate", 150)
-                engine.say("Welcome to the Aperture Science Enrichment Center.")
-                engine.runAndWait()
                 continue
             elif command == "help":
                 print("\nComandos disponíveis:")
