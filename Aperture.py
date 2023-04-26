@@ -51,7 +51,7 @@ def animacao_carregamento():
     
     print("\n--- Login ---")
     username = input("Nome de usuário: ")
-    password = input("Senha: ")
+    password = getpass.getpass("Senha: ")
 
     if username == "admin" and password == "password":
         print("Login bem-sucedido!")
