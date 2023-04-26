@@ -1,8 +1,6 @@
 import time
 
 def animacao_carregamento():
-    print("Inicializando o Sistema Operacional da Aperture Science...")
-    time.sleep(2)
     print("Aperture Science OS v1.0")
     time.sleep(2)
     logo_ascii = r"""
@@ -70,6 +68,25 @@ def animacao_carregamento():
                 time.sleep(3)
                 print("GLaDOS iniciada com sucesso!")
                 # Adicione aqui a lógica adicional para a inicialização da GLaDOS
+                continue        
+            elif command == "help":
+                print("Comandos disponíveis:")
+                print("start GLaDOS - Inicia a GLaDOS")
+                print("check systems - Realiza a checagem dos sistemas")
+                print("help - Exibe a lista de comandos disponíveis")
+                print("check cores - Verifica o estado dos núcleos da GLaDOS")
+                print("shutdown - Desliga o sistema")
+                #Adicione aqui quaisquer outros comandos que você tenha
+            elif command == "check cores":
+                print("Verificando o estado dos núcleos da GLaDOS...")
+                time.sleep(2)
+                print("Núcleo de Personalidade - Estado: Estável")
+                time.sleep(1)
+                print("Núcleo de Inteligência Artificial - Estado: Funcionando")
+                time.sleep(1)
+                print("Núcleo de Emoção - Estado: Ativo")
+                time.sleep(1)
+                # Adicione aqui outras verificações de núcleos, se necessário
                 continue
             elif command == "check systems":
                 print("Realizando checagem dos sistemas do laboratório...")
@@ -102,9 +119,9 @@ def animacao_carregamento():
                 time.sleep(2)
                 print("Desligando...")
                 time.sleep(2)            
-            # Adicione aqui a lógica para executar os comandos do usuário            
+            # Adicione aqui a lógica para executar os comandos do usuário
     else:
         print("Credenciais inválidas. Tente novamente.")
-
+        
 animacao_carregamento()
 
