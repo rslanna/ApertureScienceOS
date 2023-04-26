@@ -1,4 +1,5 @@
 import time
+import pyttsx3
 
 def animacao_carregamento():
     print("Aperture Science OS v1.0")
@@ -67,26 +68,49 @@ def animacao_carregamento():
                 print("Carregando banco de dados de experimentos...")
                 time.sleep(3)
                 print("GLaDOS iniciada com sucesso!")
-                # Adicione aqui a lógica adicional para a inicialização da GLaDOS
-                continue        
+
+                # TTS - Text to Speech
+                engine = pyttsx3.init()
+                engine.setProperty("rate", 150)
+                engine.say("Welcome to the Aperture Science Enrichment Center.")
+                engine.runAndWait()
+                continue
             elif command == "help":
-                print("Comandos disponíveis:")
-                print("start GLaDOS - Inicia a GLaDOS")
-                print("check systems - Realiza a checagem dos sistemas")
-                print("help - Exibe a lista de comandos disponíveis")
-                print("check cores - Verifica o estado dos núcleos da GLaDOS")
-                print("shutdown - Desliga o sistema")
+                print("\nComandos disponíveis:")
+                print(" - start GLaDOS: Inicia o sistema GLaDOS")
+                print(" - check systems: Realiza a checagem dos sistemas do laboratório")
+                print(" - check cores: Verifica o estado dos núcleos da GLaDOS")
+                print(" - check lab stats: Verifica as estatísticas do laboratório")
+                print(" - shutdown: Desliga o sistema")
                 #Adicione aqui quaisquer outros comandos que você tenha
             elif command == "check cores":
                 print("Verificando o estado dos núcleos da GLaDOS...")
                 time.sleep(2)
-                print("Núcleo de Personalidade - Estado: Estável")
+                print("Núcleo de Moralidade - Estado: Funcionando")
                 time.sleep(1)
-                print("Núcleo de Inteligência Artificial - Estado: Funcionando")
+                print("Núcleo de Curiosidade - Estado: Funcionando")
                 time.sleep(1)
-                print("Núcleo de Emoção - Estado: Ativo")
+                print("Núcleo de Inteligência - Estado: Funcionando")
                 time.sleep(1)
-                # Adicione aqui outras verificações de núcleos, se necessário
+                print("Núcleo de Raiva - Estado: Funcionando")
+                time.sleep(1)
+                print("Núcleo de Amortecimento de Inteligência - Estado: Falha")
+                time.sleep(1)
+                # Adicione aqui outros núcleos, se necessário
+                continue
+            elif command == "check lab stats":
+                print("Verificando estatísticas do laboratório...")
+                time.sleep(2)
+                print("Quantidade de Torretas Produzidas: 500")
+                time.sleep(1)
+                print("Quantidade de Torretas Destruidas: 100")
+                time.sleep(1)
+                print("Quantidade de Cubos Produzidos: 200")
+                time.sleep(1)
+                print("Quantidade de Cobaias em Estado de Suspensão: 50")
+                time.sleep(1)
+                print("Quantidade de Funcionários do Laboratório: 20")
+                time.sleep(1)
                 continue
             elif command == "check systems":
                 print("Realizando checagem dos sistemas do laboratório...")
