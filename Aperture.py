@@ -1,5 +1,10 @@
 import time
 import os
+import openai
+
+# Configuração da API do OpenAI (https://platform.openai.com/account/api-keys)
+openai.api_key = "SUA_API_KEY_DO_CHATGPT"
+
 # Código ANSI para cores
 RED = "\033[91m"
 RESET = "\033[0m"
@@ -90,6 +95,7 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("Diagnóstico concluído!")
                 continue
+
             elif command == "connect to GLaDOS":
                 print("Conectando à GLaDOS...")
                 for _ in range(3):
@@ -99,9 +105,28 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("GLaDOS>: Olá, eu sou a GLaDOS. Em que posso ajudar você?")
                 user_input = input(f"{username}>: ")
-                print(f"GLaDOS>: Entendi, você deseja {user_input}. Infelizmente, não posso atender a essa solicitação no momento.")
+
+                # Interação com o ChatGPT
+                response = openai.Completion.create(
+                    engine="text-davinci-003",
+                    prompt=f"GLaDOS>: {user_input}\n{username}>:",
+                    temperature=0.7,
+                    max_tokens=50,
+                    n=1,
+                    stop=None,
+                    timeout=10
+                )
+
+                if response.choices:
+                    print(f"GLaDOS>: {response.choices[0].text.strip()}")
+                else:
+                    print("GLaDOS>: Desculpe, ocorreu um erro durante a interação.")
+
                 continue
-            elif command == "help":
+
+
+
+            elif command == "ajuda":
                 print("\nComandos disponíveis:")
                 print(" - start GLaDOS: Inicia o sistema GLaDOS")
                 print(" - diagnose GLaDOS: Inicia diagnóstico dos sistemas principais da GLaDOS")
@@ -111,6 +136,8 @@ def animacao_carregamento():
                 print(" - check cores: Verifica o estado dos núcleos da GLaDOS")
                 print(" - check lab stats: Verifica as estatísticas do laboratório")
                 print(" - shutdown system: Desliga o sistema")
+                print(" - ajuda: Exibe esta mensagem de ajuda")
+
                 #Adicione aqui quaisquer outros comandos que você tenha
             elif command == "check cores":
                 print("Verificando o estado dos núcleos da GLaDOS...")
