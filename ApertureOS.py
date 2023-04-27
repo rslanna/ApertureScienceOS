@@ -105,7 +105,6 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("GLaDOS>: Olá, eu sou a GLaDOS. Em que posso ajudar você?")
                 user_input = input(f"{username}>: ")
-
                 # Interação com o ChatGPT
                 response = openai.Completion.create(
                     engine="text-davinci-003",
