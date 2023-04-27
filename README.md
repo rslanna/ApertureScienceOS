@@ -1,4 +1,4 @@
-# Aperture Science OS
+# Aperture Science OS v1.0
 Bem-vindo ao repositório do Aperture Science OS, uma simulação interativa de um sistema operacional fictício criado como uma homenagem ao jogo Portal, da Valve Corporation.
 
 O Aperture Science OS é um sistema operacional interativo com uma interface de linha de comando (CLI), criado usando Python. Ele permite que o usuário interaja com o laboratório da Aperture Science e inicie a inteligência artificial GLaDOS.
