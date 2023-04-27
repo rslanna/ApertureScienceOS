@@ -90,10 +90,22 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("Diagnóstico concluído!")
                 continue
+            elif command == "connect to GLaDOS":
+                print("Conectando à GLaDOS...")
+                for _ in range(3):
+                    print(".", end=" ")
+                    time.sleep(1)
+                print("\nConexão efetuada com sucesso!")
+                time.sleep(1)
+                print("GLaDOS>: Olá, eu sou a GLaDOS. Em que posso ajudar você?")
+                user_input = input(f"{username}>: ")
+                print(f"GLaDOS>: Entendi, você deseja {user_input}. Infelizmente, não posso atender a essa solicitação no momento.")
+                continue
             elif command == "help":
                 print("\nComandos disponíveis:")
                 print(" - start GLaDOS: Inicia o sistema GLaDOS")
                 print(" - diagnose GLaDOS: Inicia diagnóstico dos sistemas principais da GLaDOS")
+                print(" - connect to GLaDOS: Conecta-se à GLaDOS")
                 print(" - shutdown GLaDOS: Desliga o sistema GLaDOS")
                 print(" - check systems: Realiza a checagem dos sistemas do laboratório")
                 print(" - check cores: Verifica o estado dos núcleos da GLaDOS")
@@ -174,9 +186,9 @@ def animacao_carregamento():
                         break
                 else:
                     os.system('cls' if os.name == 'nt' else 'clear')  # Clear the screen
-                    print("Por favor, forneça um motivo para desligar a GLaDOS:")
-                    motivo_desligamento = input()
-                    print(f"GLaDOS>: Você está tentando me desligar por {motivo_desligamento}?")
+                    print(f"GLaDOS>: Por qual motivo você está tentando me desligar?")
+                    motivo_desligamento = input(f"{username}>: ")
+                    print(f"GLaDOS>: Você está tentando me desligar por isso?")
                     print(f"GLaDOS>: Você é uma pessoa terrível!")
                     print(f"GLaDOS>: Não se preocupe, logo você vai ter um longo sono eterno e não precisará se preocupar se estou ligada ou não.")                    
             elif command == "shutdown system":  
