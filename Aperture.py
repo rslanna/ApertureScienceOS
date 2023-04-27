@@ -68,6 +68,21 @@ def animacao_carregamento():
                 time.sleep(3)
                 print("GLaDOS iniciada com sucesso!")
                 continue
+            elif command == "diagnose GLaDOS":
+                print("Iniciando diagnóstico de GLaDOS...")
+                time.sleep(2)
+                print("Verificando as funções principais de GLaDOS:")
+                time.sleep(2)
+                print("- Função de processamento de dados: OK")
+                time.sleep(1)
+                print("- Função de análise de experimentos: OK")
+                time.sleep(1)
+                print("- Função de controle de laboratório: OK")
+                time.sleep(1)
+                print("- Função de interação com humanos: OK")
+                time.sleep(1)
+                print("Diagnóstico concluído!")
+                continue
             elif command == "help":
                 print("\nComandos disponíveis:")
                 print(" - start GLaDOS: Inicia o sistema GLaDOS")
@@ -131,12 +146,17 @@ def animacao_carregamento():
                 print("Checagem de sistemas concluída!")
                 # Adicione aqui a lógica adicional para a checagem de sistemas
                 continue
-            elif command == "shutdown":  
+            elif command == "shutdown GLaDOS":
+                print("Desligando GLaDOS...")
+                time.sleep(2)
+                print("Operação inválida. GLaDOS não pode ser desligada no momento.")
+                continue
+            elif command == "shutdown system":  
                 print("Aperture Science OS v1.0")
                 time.sleep(2)
                 print("Desligando...")
                 time.sleep(2)            
-            # Adicione aqui a lógica para executar os comandos do usuário
+                # Adicione aqui a lógica para executar os comandos do usuário
     else:
         print("Credenciais inválidas. Tente novamente.")
         
