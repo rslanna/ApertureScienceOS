@@ -1,4 +1,6 @@
 import time
+import os
+
 
 def animacao_carregamento():
     print("Aperture Science OS v1.0")
@@ -165,6 +167,13 @@ def animacao_carregamento():
                     else:
                         print("Continuando operação normal.")
                         break
+                else:
+                    os.system('cls' if os.name == 'nt' else 'clear')  # Clear the screen
+                    print("Por favor, forneça um motivo para desligar a GLaDOS:")
+                    motivo_desligamento = input()
+                    print(f"GLaDOS>: Você está tentando me desligar por {motivo_desligamento}?")
+                    print(f"GLaDOS>: Você é uma pessoa terrível!")
+                    print(f"GLaDOS>: Não se preocupe, logo você vai ter um longo sono eterno e não precisará se preocupar se estou ligada ou não.")                    
             elif command == "shutdown system":  
                 print("Aperture Science OS v1.0")
                 time.sleep(2)
