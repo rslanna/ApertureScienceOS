@@ -152,24 +152,19 @@ def animacao_carregamento():
                 continue
             elif command == "shutdown GLaDOS":
                 shutdown_attempts = 0
-            while shutdown_attempts < 3:
-                print("Desligando GLaDOS...")
-                time.sleep(2)
-                print("Erro. GLaDOS não pode ser desligada no momento.")
-                resposta = input("Deseja tentar desligar a GLaDOS novamente? (sim/não): ")
-            if resposta.lower() == "sim" or resposta.lower() == "s":
-                print("Tentando desligar a GLaDOS novamente...")
-                time.sleep(2)
-                print("Erro. Falha ao desligar a GLaDOS.")
-                shutdown_attempts += 1
-            else:
-                print("Continuando operação normal.")
-                break
-
-            if shutdown_attempts == 3:
-                print("\n" * 100)  # Limpa a tela
-                print("GLaDOS>")
-                continue
+                while shutdown_attempts < 3:
+                    print("Desligando GLaDOS...")
+                    time.sleep(2)
+                    print("Erro. GLaDOS não pode ser desligada no momento.")
+                    resposta = input("Deseja tentar desligar a GLaDOS novamente? (sim/não): ")
+                    if resposta.lower() == "sim" or resposta.lower() == "s":
+                        print("Tentando desligar a GLaDOS novamente...")
+                        time.sleep(2)
+                        print("Erro. Falha ao desligar a GLaDOS.")
+                        shutdown_attempts += 1
+                    else:
+                        print("Continuando operação normal.")
+                        break
             elif command == "shutdown system":  
                 print("Aperture Science OS v1.0")
                 time.sleep(2)
