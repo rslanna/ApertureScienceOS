@@ -1,6 +1,11 @@
 import time
 import os
+# Código ANSI para cores
+RED = "\033[91m"
+RESET = "\033[0m"
 
+def exibir_mensagem_erro(mensagem):
+    print(f"{RED}{mensagem}{RESET}")
 
 def animacao_carregamento():
     print("Aperture Science OS v1.0")
@@ -106,7 +111,7 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("Núcleo de Raiva - Estado: Funcionando")
                 time.sleep(1)
-                print("Núcleo de Amortecimento de Inteligência - Estado: Não encontrado")
+                exibir_mensagem_erro("Núcleo de Amortecimento de Inteligência - Estado: Não encontrado")
                 time.sleep(1)
                 # Adicione aqui outros núcleos, se necessário
                 continue
@@ -124,7 +129,7 @@ def animacao_carregamento():
                 print("Quantidade de Funcionários do Laboratório: 20")
                 time.sleep(1)
                 continue
-            elif command == "check system":
+            elif command == "check systems":
                 print("Realizando checagem dos sistemas do laboratório...")
                 time.sleep(2)
                 print("Verificando sistemas de energia... [OK]")
@@ -157,12 +162,12 @@ def animacao_carregamento():
                 while shutdown_attempts < 3:
                     print("Desligando GLaDOS...")
                     time.sleep(2)
-                    print("Erro. GLaDOS não pode ser desligada no momento.")
+                    exibir_mensagem_erro("Erro. GLaDOS não pode ser desligada no momento.")
                     resposta = input("Deseja tentar desligar a GLaDOS novamente? (sim/não): ")
                     if resposta.lower() == "sim" or resposta.lower() == "s":
                         print("Tentando desligar a GLaDOS novamente...")
                         time.sleep(2)
-                        print("Erro. Falha ao desligar a GLaDOS.")
+                        exibir_mensagem_erro("Erro. Falha ao desligar a GLaDOS.")
                         shutdown_attempts += 1
                     else:
                         print("Continuando operação normal.")
