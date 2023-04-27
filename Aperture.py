@@ -104,7 +104,7 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("Núcleo de Raiva - Estado: Funcionando")
                 time.sleep(1)
-                print("Núcleo de Amortecimento de Inteligência - Estado: Falha")
+                print("Núcleo de Amortecimento de Inteligência - Estado: Não encontrado")
                 time.sleep(1)
                 # Adicione aqui outros núcleos, se necessário
                 continue
@@ -117,7 +117,7 @@ def animacao_carregamento():
                 time.sleep(1)
                 print("Quantidade de Cubos Produzidos: 200")
                 time.sleep(1)
-                print("Quantidade de Cobaias em Estado de Suspensão: 50")
+                print("Quantidade de Cobaias em Estado de Suspensão: 1")
                 time.sleep(1)
                 print("Quantidade de Funcionários do Laboratório: 20")
                 time.sleep(1)
@@ -145,13 +145,30 @@ def animacao_carregamento():
                 time.sleep(2)
                 print("Verificando Gel de Conversão... [OK]")
                 time.sleep(2)
+                print("Verificando dispensadores de Bolo... [OK]")
+                time.sleep(2)
                 print("Checagem de sistemas concluída!")
                 # Adicione aqui a lógica adicional para a checagem de sistemas
                 continue
             elif command == "shutdown GLaDOS":
+                shutdown_attempts = 0
+            while shutdown_attempts < 3:
                 print("Desligando GLaDOS...")
                 time.sleep(2)
-                print("Operação inválida. GLaDOS não pode ser desligada no momento.")
+                print("Erro. GLaDOS não pode ser desligada no momento.")
+                resposta = input("Deseja tentar desligar a GLaDOS novamente? (sim/não): ")
+            if resposta.lower() == "sim" or resposta.lower() == "s":
+                print("Tentando desligar a GLaDOS novamente...")
+                time.sleep(2)
+                print("Erro. Falha ao desligar a GLaDOS.")
+                shutdown_attempts += 1
+            else:
+                print("Continuando operação normal.")
+                break
+
+            if shutdown_attempts == 3:
+                print("\n" * 100)  # Limpa a tela
+                print("GLaDOS>")
                 continue
             elif command == "shutdown system":  
                 print("Aperture Science OS v1.0")
