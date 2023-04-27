@@ -3,7 +3,7 @@ Bem-vindo ao repositório do Aperture Science OS, uma simulação interativa de 
 
 O Aperture Science OS é um sistema operacional interativo com uma interface de linha de comando (CLI), criado usando Python. Ele permite que o usuário interaja com o laboratório da Aperture Science e inicie a inteligência artificial GLaDOS.
 
-# Instalação
+# Dependências
 Para executar o Aperture Science OS, você precisará ter o Python 3 instalado em seu computador. Além disso, você precisa instalar a biblioteca openai, que é usada para permitir a interação com a inteligência artificial GLaDOS. Para instalar a biblioteca, você pode usar o seguinte comando:
 
 ```
@@ -35,6 +35,28 @@ Depois de fazer login, você pode executar os seguintes comandos:
 - check systems: Realiza a checagem dos sistemas do laboratório.
 - shutdown GLaDOS: Desliga o sistema GLaDOS.
 - shutdown system: Desliga o sistema Aperture Science OS.
+
+# TODO: Aperture Science OS v2.0
+O Aperture Science OS v2.0 é uma simulação interativa de um sistema operacional fictício criado como uma homenagem ao jogo Portal, da Valve Corporation.
+
+O Aperture Science OS v2.0 é um sistema operacional interativo com uma interface gráfica, criado usando Python. Ele permite que o usuário interaja com os sistemas e arquivos do laboratório da Aperture Science.
+
+# Dependências
+Para executar o Aperture Science OS, você precisará ter o Python 3 instalado em seu computador. Além disso, você precisa instalar a biblioteca tkinter e ttkthemes, que são usadas para gerar a interface gráfica. Para instalar as bibliotecas, você pode usar os seguintes comandos:
+
+```
+pip install tkinter
+```
+```
+pip install ttkthemes
+```
+
+# Executando o sistema operacional
+Para executar o Aperture Science OS v2.0, basta executar o arquivo ApertureOS2.py usando o seguinte comando:
+
+```
+python ApertureOS2.py
+```
 
 # Agradecimentos
 Este projeto foi criado como um exercício para praticar habilidades de programação e é uma homenagem ao jogo Portal, da Valve Corporation. Os diálogos da inteligência artificial GLaDOS são criados usando o modelo de linguagem do ChatGPT da OpenAI.
