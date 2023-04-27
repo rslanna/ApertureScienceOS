@@ -86,10 +86,12 @@ def animacao_carregamento():
             elif command == "help":
                 print("\nComandos disponíveis:")
                 print(" - start GLaDOS: Inicia o sistema GLaDOS")
+                print(" - diagnose GLaDOS: Inicia diagnóstico dos sistemas principais da GLaDOS")
+                print(" - shutdown GLaDOS: Desliga o sistema GLaDOS")
                 print(" - check systems: Realiza a checagem dos sistemas do laboratório")
                 print(" - check cores: Verifica o estado dos núcleos da GLaDOS")
                 print(" - check lab stats: Verifica as estatísticas do laboratório")
-                print(" - shutdown: Desliga o sistema")
+                print(" - shutdown system: Desliga o sistema")
                 #Adicione aqui quaisquer outros comandos que você tenha
             elif command == "check cores":
                 print("Verificando o estado dos núcleos da GLaDOS...")
@@ -120,7 +122,7 @@ def animacao_carregamento():
                 print("Quantidade de Funcionários do Laboratório: 20")
                 time.sleep(1)
                 continue
-            elif command == "check systems":
+            elif command == "check system":
                 print("Realizando checagem dos sistemas do laboratório...")
                 time.sleep(2)
                 print("Verificando sistemas de energia... [OK]")
