@@ -1,6 +1,7 @@
 import time
 import os
 import openai
+from utils.translator import ApertureTranslator
 
 # Configuração da API do OpenAI (https://platform.openai.com/account/api-keys)
 openai.api_key = "SUA_API_KEY_DO_CHATGPT"
@@ -37,19 +38,13 @@ def animacao_carregamento():
          ,:+$+-,/H#MMMMMMM@= =,
                =++%%%%+/:-.
     """
+    # TODO: Pegar linguagem como variavel do cmd (ex: python ApertureOS.py en-us ou python ApertureOS.py pt-br)
+    # TODO: Transformar essa função em uma classe
+
+    translator = ApertureTranslator("en-us")
     slogan = "We do what we must because we can."
 
-    frases_carregamento = [
-        "Carregando módulos principais...",
-        "Configurando protocolos de teste...",
-        "Inicializando testes de segurança...",
-        "Verificando integridade do sistema...",
-        "Aperture Science OS carregado com sucesso!",
-        "Inicializando testes de laboratório...",
-        "Conectando-se ao laboratório central...",
-        "Calibrando portais...",
-        "Inicialização concluída. Bem-vindo à Aperture Science!",
-    ]
+    frases_carregamento = translator.get_start_loading_text()
 
     print(logo_ascii)
     print(slogan)
@@ -57,43 +52,33 @@ def animacao_carregamento():
     for frase in frases_carregamento:
         print("\n" + frase, end=" ")
         time.sleep(2)
-
-    print("\nSistema Operacional da Aperture Science inicializado com sucesso!")
     
     print("\n--- Login ---")
-    username = input("Nome de usuário: ")
-    password = input("Senha: ")
+    username = input(translator.get_translation_for("login_user_text")+": ")
+    password = input(translator.get_translation_for("login_pwd_text")+": ")
 
     if username == "admin" and password == "password":
-        print("Login bem-sucedido!")
-        print(f"\nBem-vindo, {username}!")
+        print(translator.get_translation_for("success_login_text"))
+        print(f"\n{translator.get_translation_for('welcome_text')}, {username}!")
         while True:
             current_directory = "~"  # Diretório atual fictício
             command_prompt = f"{username}@ApertureLab:{current_directory}$ "
             command = input(command_prompt)
-            if command == "start GLaDOS":
-                print("Iniciando GLaDOS...")
-                time.sleep(2)
-                print("Inicializando módulos de IA...")
-                time.sleep(2)
-                print("Carregando banco de dados de experimentos...")
-                time.sleep(3)
-                print("GLaDOS iniciada com sucesso!")
-                continue
-            elif command == "diagnose GLaDOS":
-                print("Iniciando diagnóstico de GLaDOS...")
-                time.sleep(2)
-                print("Verificando as funções principais de GLaDOS:")
-                time.sleep(2)
-                print("- Função de processamento de dados: OK")
-                time.sleep(1)
-                print("- Função de análise de experimentos: OK")
-                time.sleep(1)
-                print("- Função de controle de laboratório: OK")
-                time.sleep(1)
-                print("- Função de interação com humanos: OK")
-                time.sleep(1)
-                print("Diagnóstico concluído!")
+            command_responses = translator.get_command_response_and_delay(command)
+            if command_responses:
+                # TODO: Dynamic help command (criar campo no comando no json com a descrição da ajuda e iterar sobre comandos)
+                # TODO: Special functions (criar campo no comando no json com o nome da função especial e chama-la usando getattr)
+                # TODO: Implementar os comandos restantes abaixo com a implementação das special functions /\
+                delay = command_responses[0]
+                responses = command_responses[1]
+                errors = command_responses[2]
+                for resp in responses:
+                    print(resp)
+                    time.sleep(delay)
+                if errors:
+                    for resp in errors:
+                        exibir_mensagem_erro(resp)
+                        time.sleep(delay)
                 continue
 
             elif command == "connect to GLaDOS":
@@ -123,78 +108,10 @@ def animacao_carregamento():
 
                 continue
 
-
-
-            elif command == "ajuda":
-                print("\nComandos disponíveis:")
-                print(" - start GLaDOS: Inicia o sistema GLaDOS")
-                print(" - diagnose GLaDOS: Inicia diagnóstico dos sistemas principais da GLaDOS")
-                print(" - connect to GLaDOS: Conecta-se à GLaDOS")
-                print(" - shutdown GLaDOS: Desliga o sistema GLaDOS")
-                print(" - check systems: Realiza a checagem dos sistemas do laboratório")
-                print(" - check cores: Verifica o estado dos núcleos da GLaDOS")
-                print(" - check lab stats: Verifica as estatísticas do laboratório")
-                print(" - shutdown system: Desliga o sistema")
-                print(" - ajuda: Exibe esta mensagem de ajuda")
-
-                #Adicione aqui quaisquer outros comandos que você tenha
-            elif command == "check cores":
-                print("Verificando o estado dos núcleos da GLaDOS...")
-                time.sleep(2)
-                print("Núcleo de Moralidade - Estado: Funcionando")
-                time.sleep(1)
-                print("Núcleo de Curiosidade - Estado: Funcionando")
-                time.sleep(1)
-                print("Núcleo de Inteligência - Estado: Funcionando")
-                time.sleep(1)
-                print("Núcleo de Raiva - Estado: Funcionando")
-                time.sleep(1)
-                exibir_mensagem_erro("Núcleo de Amortecimento de Inteligência - Estado: Não encontrado")
-                time.sleep(1)
-                # Adicione aqui outros núcleos, se necessário
-                continue
-            elif command == "check lab stats":
-                print("Verificando estatísticas do laboratório...")
-                time.sleep(2)
-                print("Quantidade de Torretas Produzidas: 500")
-                time.sleep(1)
-                print("Quantidade de Torretas Destruidas: 100")
-                time.sleep(1)
-                print("Quantidade de Cubos Produzidos: 200")
-                time.sleep(1)
-                print("Quantidade de Cobaias em Estado de Suspensão: 1")
-                time.sleep(1)
-                print("Quantidade de Funcionários do Laboratório: 20")
-                time.sleep(1)
-                continue
             elif command == "check systems":
-                print("Realizando checagem dos sistemas do laboratório...")
-                time.sleep(2)
-                print("Verificando sistemas de energia... [OK]")
-                time.sleep(2)
-                print("Verificando sistemas de segurança... [OK]")
-                time.sleep(2)
-                print("Verificando conexões de rede... [OK]")
-                time.sleep(2)
-                print("Verificando dispensadores de caixa... [OK]")
-                time.sleep(2)
-                print("Verificando funcionamento dos botões... [OK]")
-                time.sleep(2)
-                print("Verificando câmeras de segurança... [OK]")
-                time.sleep(2)
-                print("Verificando funcionamento dos lasers... [OK]")
-                time.sleep(2)
-                print("Verificando Gel de Propulsão... [OK]")
-                time.sleep(2)
-                print("Verificando Gel de Repulsão... [OK]")
-                time.sleep(2)
-                print("Verificando Gel de Conversão... [OK]")
-                time.sleep(2)
-                print("Verificando dispensadores de Bolo... [OK]")
-                time.sleep(2)
-                print("Checagem de sistemas concluída!")
                 # Adicione aqui a lógica adicional para a checagem de sistemas
                 continue
+
             elif command == "shutdown GLaDOS":
                 shutdown_attempts = 0
                 while shutdown_attempts < 3:
@@ -217,14 +134,14 @@ def animacao_carregamento():
                     print(f"GLaDOS>: Você está tentando me desligar por isso?")
                     print(f"GLaDOS>: Você é uma pessoa terrível!")
                     print(f"GLaDOS>: Não se preocupe, logo você vai ter um longo sono eterno e não precisará se preocupar se estou ligada ou não.")                    
-            elif command == "shutdown system":  
-                print("Aperture Science OS v1.0")
-                time.sleep(2)
-                print("Desligando...")
-                time.sleep(2)            
+
+            elif command == "shutdown system":      
                 # Adicione aqui a lógica para executar os comandos do usuário
+                continue
+            else:
+                print(translator.get_translation_for("command_not_found_message"))
     else:
-        print("Credenciais inválidas. Tente novamente.")
+        print(translator.get_translation_for("failed_login_text"))
         
 animacao_carregamento()
 
