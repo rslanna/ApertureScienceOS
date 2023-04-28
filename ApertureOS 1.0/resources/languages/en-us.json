@@ -1,0 +1,114 @@
+{
+    "start_loading_text":
+    [
+        "Loading main modules...",
+        "Configuring tests protocols...",
+        "Initializing security checks...",
+        "Verifing system integrity...",
+        "Aperture Science OS loaded!",
+        "Initializing laboratory tests...",
+        "Connecting to central laboratory...",
+        "Calibrating Portals...",
+        "Initialization completed. Welcome to Aperture Science!"
+    ],
+    "login_user_text": "User",
+    "login_pwd_text": "Password",
+    "success_login_text":"Logged succesfully!",
+    "failed_login_text":"Invalid credentials. Try again.",
+    "welcome_text": "Welcome",
+    "commands":[
+        {
+            "user_command": "start GLaDOS",
+            "response":[
+                "Starting GLaDOS...",
+                "Starting AI modules...",
+                "Loading experiments database...",
+                "GLaDOS started successfully!"
+            ],
+            "time_between_each_response": 2
+        },
+        {
+            "user_command": "diagnose GLaDOS",
+            "response":[
+                "Starting GLaDOS diagnostics...",
+                "Checking the main functions of GLaDOS:",
+                "- Data processing function: OK",
+                "- Design analysis function: OK",
+                "- Lab control function: OK",
+                "- Human interaction function: OK",
+                "Diagnosis completed!"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "help",
+            "response":[
+                "\nAvailable commands:",
+                " - start GLaDOS: Starts the GLaDOS system",
+                " - GLaDOS diagnosis: Starts diagnosis of GLaDOS main systems",
+                " - connect to GLaDOS: Connects to GLaDOS",
+                " - shutdown GLaDOS: Shuts down the GLaDOS system",
+                " - check systems: Checks the laboratory systems",
+                " - check cores: Checks the state of GLaDOS cores",
+                " - check lab stats: Check lab statistics",
+                " - shutdown system: Turns off the system",
+                " - help: Display this help message"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "check cores",
+            "response":[
+                "Checking status of GLaDOS cores...",
+                "Morality Core - State: Working",
+                "Curiosity Core - State: Working",
+                "Intelligence Core - State: Working",
+                "Rage Core - Status: Working"
+            ],
+            "errors": [
+                "Intelligence Dampening Core - Status: Not Found"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "check lab stats",
+            "response":[
+                "Checking lab statistics...",
+                "Amount of Turrets Produced: 500",
+                "Number of Turrets Destroyed: 100",
+                "Number of Cubes Produced: 200",
+                "Number of Guinea Pigs in Suspension State: 1",
+                "Number of Lab Employees: 20"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "check systems",
+            "response":[
+                "Performing laboratory systems check...",
+                "Checking power systems... [OK]",
+                "Checking security systems... [OK]",
+                "Checking network connections... [OK]",
+                "Checking box dispensers... [OK]",
+                "Checking operation of the buttons... [OK]",
+                "Checking security cameras... [OK]",
+                "Verifying operation of lasers... [OK]",
+                "Checking Propulsion Gel... [OK]",
+                "Checking Repulsion Gel... [OK]",
+                "Checking Conversion Gel... [OK]",
+                "Checking Cake dispensers... [OK]",
+                "System check completed!"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "shutdown system",
+            "response":[
+                "Aperture Science OS v1.0",
+                "Shutting Down..."
+            ],
+            "time_between_each_response": 1
+        }
+    ],
+    "command_not_found_message": "Command not found"
+}

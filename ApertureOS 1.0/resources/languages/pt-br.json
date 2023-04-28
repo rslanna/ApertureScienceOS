@@ -1,0 +1,114 @@
+{
+    "start_loading_text":
+    [
+        "Carregando modulos principais...",
+        "Configurando protocolos de teste...",
+        "Inicializando testes de seguranca...",
+        "Verificando integridade do sistema...",
+        "Aperture Science OS carregado com sucesso!",
+        "Inicializando testes de laboratorio...",
+        "Conectando-se ao laboratorio central...",
+        "Calibrando portais...",
+        "Inicializacao concluida. Bem-vindo a Aperture Science!"
+    ],
+    "login_user_text": "Usuário",
+    "login_pwd_text": "Senha",
+    "success_login_text":"Login bem-sucedido!",
+    "failed_login_text":"Credenciais inválidas. Tente novamente.",
+    "welcome_text": "Bem-vindo",
+    "commands":[
+        {
+            "user_command": "start GLaDOS",
+            "response":[
+                "Iniciando GLaDOS...",
+                "Inicializando modulos de IA...",
+                "Carregando banco de dados de experimentos...",
+                "GLaDOS iniciada com sucesso!"
+            ],
+            "time_between_each_response": 2
+        },
+        {
+            "user_command": "diagnose GLaDOS",
+            "response":[
+                "Iniciando diagnóstico de GLaDOS...",
+                "Verificando as funções principais de GLaDOS:",
+                "- Função de processamento de dados: OK",
+                "- Função de análise de experimentos: OK",
+                "- Função de controle de laboratório: OK",
+                "- Função de interação com humanos: OK",
+                "Diagnóstico concluído!"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "ajuda",
+            "response":[
+                "\nComandos disponíveis:",
+                " - start GLaDOS: Inicia o sistema GLaDOS",
+                " - diagnose GLaDOS: Inicia diagnóstico dos sistemas principais da GLaDOS",
+                " - connect to GLaDOS: Conecta-se à GLaDOS",
+                " - shutdown GLaDOS: Desliga o sistema GLaDOS",
+                " - check systems: Realiza a checagem dos sistemas do laboratório",
+                " - check cores: Verifica o estado dos núcleos da GLaDOS",
+                " - check lab stats: Verifica as estatísticas do laboratório",
+                " - shutdown system: Desliga o sistema",
+                " - ajuda: Exibe esta mensagem de ajuda"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "check cores",
+            "response":[
+                "Verificando o estado dos núcleos da GLaDOS...",
+                "Núcleo de Moralidade - Estado: Funcionando",
+                "Núcleo de Curiosidade - Estado: Funcionando",
+                "Núcleo de Inteligência - Estado: Funcionando",
+                "Núcleo de Raiva - Estado: Funcionando"
+            ],
+            "errors": [
+                "Núcleo de Amortecimento de Inteligência - Estado: Não encontrado"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "check lab stats",
+            "response":[
+                "Verificando estatísticas do laboratório...",
+                "Quantidade de Torretas Produzidas: 500",
+                "Quantidade de Torretas Destruidas: 100",
+                "Quantidade de Cubos Produzidos: 200",
+                "Quantidade de Cobaias em Estado de Suspensão: 1",
+                "Quantidade de Funcionários do Laboratório: 20"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "check systems",
+            "response":[
+                "Realizando checagem dos sistemas do laboratório...",
+                "Verificando sistemas de energia... [OK]",
+                "Verificando sistemas de segurança... [OK]",
+                "Verificando conexões de rede... [OK]",
+                "Verificando dispensadores de caixa... [OK]",
+                "Verificando funcionamento dos botões... [OK]",
+                "Verificando câmeras de segurança... [OK]",
+                "Verificando funcionamento dos lasers... [OK]",
+                "Verificando Gel de Propulsão... [OK]",
+                "Verificando Gel de Repulsão... [OK]",
+                "Verificando Gel de Conversão... [OK]",
+                "Verificando dispensadores de Bolo... [OK]",
+                "Checagem de sistemas concluída!"
+            ],
+            "time_between_each_response": 1
+        },
+        {
+            "user_command": "shutdown system",
+            "response":[
+                "Aperture Science OS v1.0",
+                "Desligando..."
+            ],
+            "time_between_each_response": 1
+        }
+    ],
+    "command_not_found_message": "Comando nao encontrado"
+}

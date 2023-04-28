@@ -1,0 +1,1 @@
+PATH_TO_LANGUAGE_JSON_FILES = "./resources/languages/"
