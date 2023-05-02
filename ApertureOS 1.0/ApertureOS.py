@@ -57,7 +57,7 @@ def animacao_carregamento():
     username = input(translator.get_translation_for("login_user_text")+": ")
     password = input(translator.get_translation_for("login_pwd_text")+": ")
 
-    if username == "admin" and password == "password":
+    if username == "cjohnson" and password == "tier3":
         print(translator.get_translation_for("success_login_text"))
         print(f"\n{translator.get_translation_for('welcome_text')}, {username}!")
         while True:
